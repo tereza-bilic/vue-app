@@ -50,9 +50,14 @@ export default {
       }
     },
   },
+  updated() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  },
+  mounted() {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  },
 };
 </script>
-
-<style scoped>
-/* Your scoped styles here */
-</style>
